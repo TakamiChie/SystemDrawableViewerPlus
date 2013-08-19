@@ -14,7 +14,7 @@
     <string name="hint_op_preview">プレビュー</string>
     <string name="title_activity_preview">プレビュー</string>
     <string name="hint_preview">アイコンプレビュー</string>
-    <string name="edit_draw_background">背景画像</string>
-    <string name="edit_draw_icon">アイコン</string>
+    <string name="label_draw_background">背景画像</string>
+    <string name="label_draw_icon">アイコン</string>
 
 </resources>

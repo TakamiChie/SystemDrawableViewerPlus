@@ -1,58 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".PreviewActivity" >
+    android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <TextView
-        android:id="@+id/out_iconname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <RadioGroup
-        android:id="@+id/edit_draw_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/edit_draw_background"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_draw_background" />
-
-        <RadioButton
-            android:id="@+id/edit_draw_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_draw_icon" />
-
-    </RadioGroup>
-
-    <ImageButton
-        android:id="@+id/out_preview1"
-        android:layout_width="@dimen/size_iconimage"
-        android:layout_height="@dimen/size_iconimage"
-        android:layout_margin="4dp"
-        android:contentDescription="@string/hint_preview" />
-
-    <ImageButton
-        android:id="@+id/out_preview2"
-        android:layout_width="@dimen/size_iconimagex2"
-        android:layout_height="@dimen/size_iconimage"
-        android:layout_margin="4dp"
-        android:contentDescription="@string/hint_preview" />
-
-    <ImageButton
-        android:id="@+id/out_preview3"
-        android:layout_width="@dimen/size_iconimage"
-        android:layout_height="@dimen/size_iconimagex2"
-        android:layout_margin="4dp"
-        android:contentDescription="@string/hint_preview" />
-
-</LinearLayout>
+</FrameLayout>
