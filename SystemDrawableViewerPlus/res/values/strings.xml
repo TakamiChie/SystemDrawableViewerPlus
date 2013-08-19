@@ -16,5 +16,6 @@
     <string name="hint_preview">アイコンプレビュー</string>
     <string name="label_draw_background">背景画像</string>
     <string name="label_draw_icon">アイコン</string>
+    <string name="wording_size">Size %1$dx%2$d</string>
 
 </resources>
