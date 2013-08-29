@@ -5,12 +5,28 @@
     android:orientation="vertical"
     tools:context=".MainFragment" >
 
-    <Spinner
+    <RadioGroup
         android:id="@+id/edit_color_background"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/list_backgrounds"
-        tools:listitem="@android:layout/simple_spinner_item" />
+        android:checkedButton="@+id/edit_background_light"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/edit_background_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/edit_background_light" />
+
+        <RadioButton
+            android:id="@+id/edit_background_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/edit_background_dark" />
+
+    </RadioGroup>
 
     <ListView
         android:id="@android:id/list"

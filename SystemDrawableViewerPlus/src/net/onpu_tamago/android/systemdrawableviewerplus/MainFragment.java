@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.androidquery.AQuery;
 
@@ -23,7 +25,8 @@ import com.androidquery.AQuery;
  * @author 知英
  * 
  */
-public class MainFragment extends ListFragment {
+public class MainFragment extends ListFragment implements
+		OnCheckedChangeListener {
 
 	/**
 	 * リソースを表示するためのアダプタクラス
@@ -103,10 +106,10 @@ public class MainFragment extends ListFragment {
 		mView = inflater.inflate(R.layout.fragment_main, container, false);
 		return mView;
 	}
-	
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		Field[] fields = android.R.drawable.class.getFields();
 		ArrayList<NameValuePair> ids = new ArrayList<MainFragment.NameValuePair>();
 		for (Field f : fields) {
@@ -121,6 +124,19 @@ public class MainFragment extends ListFragment {
 		}
 		mResourceListAdapter = new ResourceListAdapter(getActivity(), ids);
 		setListAdapter(mResourceListAdapter);
+
+		// スタイル適用
+		RadioGroup edit_color_background = (RadioGroup) mView
+				.findViewById(R.id.edit_color_background);
+		Intent intent = getActivity().getIntent();
+		if (intent != null
+				&& intent.getIntExtra(MainActivity.EXTRA_STYLE,
+						android.R.style.Theme_Light) == android.R.style.Theme_Black) {
+			edit_color_background.check(R.id.edit_background_dark);
+		} else {
+			edit_color_background.check(R.id.edit_background_light);
+		}
+		edit_color_background.setOnCheckedChangeListener(this);
 	}
 
 	@Override
@@ -132,23 +148,42 @@ public class MainFragment extends ListFragment {
 		Bundle bundle = new Bundle();
 		bundle.putInt(EXTRA_ICONID, nv.value);
 		bundle.putString(EXTRA_ICONNAME, nv.name);
-		if(getActivity().findViewById(R.id.container) == null){
+		if (getActivity().findViewById(R.id.container) == null) {
 			// スマートフォンレイアウト
-			Intent intent = new Intent(getActivity().getApplicationContext(), PreviewActivity.class);
+			Intent intent = new Intent(getActivity().getApplicationContext(),
+					PreviewActivity.class);
 			intent.putExtras(bundle);
 			startActivity(intent);
-		}else{
+		} else {
 			// タブレットレイアウト
 			PreviewFragment fragment = new PreviewFragment();
 			fragment.setArguments(bundle);
-			
+
 			AQuery $ = new AQuery(getActivity());
 			$.id(R.id.out_viewiconname).text(nv.name);
 
-			FragmentTransaction transaction = getFragmentManager().beginTransaction();
+			FragmentTransaction transaction = getFragmentManager()
+					.beginTransaction();
 			transaction.replace(R.id.container, fragment);
 			transaction.addToBackStack(null);
 			transaction.commit();
+		}
+	}
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		Log.d(TAG, "Change Style");
+		switch (checkedId) {
+		case R.id.edit_background_light:
+			Log.d(TAG, "Light");
+			getListView().setBackgroundResource(android.R.color.background_light);
+			break;
+		case R.id.edit_background_dark:
+			Log.d(TAG, "Dark");
+			getListView().setBackgroundResource(android.R.color.background_dark);
+			break;
+		default:
+			break;
 		}
 	}
 }
