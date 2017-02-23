@@ -40,8 +40,8 @@ public class MainFragment extends ListFragment implements
 
 		private LayoutInflater mInflater;
 
-		public ResourceListAdapter(Context context,
-				ArrayList<NameValuePair> list) {
+		ResourceListAdapter(Context context,
+							ArrayList<NameValuePair> list) {
 			this.mInflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			this.mList = list;
@@ -83,9 +83,9 @@ public class MainFragment extends ListFragment implements
 	 */
 	public class NameValuePair {
 		public String name;
-		public int value;
+		int value;
 
-		public NameValuePair(String name, int value) {
+		NameValuePair(String name, int value) {
 			super();
 			this.name = name;
 			this.value = value;
@@ -93,10 +93,9 @@ public class MainFragment extends ListFragment implements
 
 	}
 
-	private static final String TAG = "[Main]SystemDrawableViewerPlus";
+	private static final String TAG = "[Main]SDViewerPlus";
 	public static final String EXTRA_ICONID = "id";
 	public static final String EXTRA_ICONNAME = "name";
-	private ResourceListAdapter mResourceListAdapter;
 	private View mView;
 
 	@Override
@@ -111,18 +110,16 @@ public class MainFragment extends ListFragment implements
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		Field[] fields = android.R.drawable.class.getFields();
-		ArrayList<NameValuePair> ids = new ArrayList<MainFragment.NameValuePair>();
+		ArrayList<NameValuePair> ids = new ArrayList<>();
 		for (Field f : fields) {
 			Log.d(TAG, f.getName());
 			try {
 				ids.add(new NameValuePair(f.getName(), f.getInt(null)));
-			} catch (IllegalArgumentException e) {
-				throw new RuntimeException(e);
-			} catch (IllegalAccessException e) {
+			} catch (IllegalArgumentException | IllegalAccessException e) {
 				throw new RuntimeException(e);
 			}
 		}
-		mResourceListAdapter = new ResourceListAdapter(getActivity(), ids);
+		ResourceListAdapter mResourceListAdapter = new ResourceListAdapter(getActivity(), ids);
 		setListAdapter(mResourceListAdapter);
 
 		// スタイル適用
