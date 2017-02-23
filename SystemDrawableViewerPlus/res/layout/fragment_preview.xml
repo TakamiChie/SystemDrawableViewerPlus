@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/out_iconsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".PreviewActivity" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_draw_background" />
+
+            <ImageButton
+                android:id="@+id/out_preview1"
+                android:layout_width="@dimen/size_iconimage"
+                android:layout_height="@dimen/size_iconimage"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+
+            <ImageButton
+                android:id="@+id/out_preview2"
+                android:layout_width="@dimen/size_iconimagex2"
+                android:layout_height="@dimen/size_iconimage"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+
+            <ImageButton
+                android:id="@+id/out_preview3"
+                android:layout_width="@dimen/size_iconimage"
+                android:layout_height="@dimen/size_iconimagex2"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_draw_icon" />
+
+            <ImageButton
+                android:id="@+id/out_preview4"
+                android:layout_width="@dimen/size_iconimage"
+                android:layout_height="@dimen/size_iconimage"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+
+            <ImageButton
+                android:id="@+id/out_preview5"
+                android:layout_width="@dimen/size_iconimagex2"
+                android:layout_height="@dimen/size_iconimage"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+
+            <ImageButton
+                android:id="@+id/out_preview6"
+                android:layout_width="@dimen/size_iconimage"
+                android:layout_height="@dimen/size_iconimagex2"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/hint_preview" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
