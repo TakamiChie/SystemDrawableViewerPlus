@@ -26,6 +26,10 @@
           <option name="url" value="https://TakamiChie@bitbucket.org/TakamiChie/resourceviewer.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/TakamiChie/ResourceViewer.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\TakamiChie\AndroidStudioProjects" />
